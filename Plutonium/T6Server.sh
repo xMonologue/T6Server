@@ -24,22 +24,22 @@ readonly SCRIPT_PATH=$(readlink -f "${BASH_SOURCE[0]}")
 # Directory containing this script
 readonly SCRIPT_DIR=$(dirname "$SCRIPT_PATH")
 # Name of your server as it will appear in the server browser
-readonly SERVER_NAME="SERVER_NAME"
+readonly SERVER_NAME="EFG 2.0 CLOSED ALPHA"
 
 # Game path configuration
 # This is the path to your game files. Choose the appropriate path based on your game mode.
 # For Multiplayer mode, use: "/opt/T6Server/Server/Multiplayer"
 # For Zombie mode, use:     "/opt/T6Server/Server/Zombie"
-readonly GAME_PATH="/opt/T6Server/Server/Multiplayer"
+readonly GAME_PATH="/opt/T6Server/Server/Zombie"
 
 # Your unique server key provided by Plutonium (https://platform.plutonium.pw/serverkeys)
-readonly SERVER_KEY="YOURKEY"
+readonly SERVER_KEY="yo2wqWYdmN5BnpBBXq8c5KuF4ntEgcDP"
 
 # Config file selection
 # This is the configuration file for your server. Choose based on your game mode.
 # For Multiplayer mode, use: "dedicated.cfg"
 # For Zombie mode, use:     "dedicated_zm.cfg"
-readonly CONFIG_FILE="dedicated.cfg"
+readonly CONFIG_FILE="dedicated_zm.cfg"
 
 # The UDP port your server will listen on
 readonly SERVER_PORT=4976
@@ -48,10 +48,15 @@ readonly SERVER_PORT=4976
 # This determines which game mode your server will run.
 # For Multiplayer mode, use: "t6mp"
 # For Zombie mode, use:     "t6zm"
-readonly GAME_MODE="t6mp"
+readonly GAME_MODE="t6zm"
 
 # Installation directory of Plutonium
 readonly INSTALL_DIR="/opt/T6Server/Plutonium"
+
+# Load a mod to your server (Make sure to setup a FastDL website so users can download the mod loaded into your server)
+# How to setup FastDL: https://plutonium.pw/docs/server/iw5/fastdl/
+# How to load mods into the server: https://plutonium.pw/docs/server/t4/loading-mods/ (Just use the T6 Folder, not the T4 folder since its WAW but the process is the same)
+MOD=""
 
 # Note: To switch to Zombie mode, make the following changes:
 # 1. Set GAME_PATH to "/opt/T6Server/Server/Zombie"
@@ -82,7 +87,7 @@ start_server() {
     # Main server loop
     while true; do
         # Start the server using Wine
-        wine .\\bin\\plutonium-bootstrapper-win32.exe "$GAME_MODE" "$GAME_PATH" -dedicated +start_map_rotate +set key "$SERVER_KEY" +set net_port "$SERVER_PORT" +set sv_config "$CONFIG_FILE" 2>/dev/null
+        wine .\\bin\\plutonium-bootstrapper-win32.exe "$GAME_MODE" "$GAME_PATH" -dedicated +start_map_rotate +set key "$SERVER_KEY" +set fs_game $MOD +set net_port "$SERVER_PORT" +set sv_config "$CONFIG_FILE" 2>/dev/null
         
         # If the server stops, log the event and restart
         printf -v timestamp '%(%F_%H:%M:%S)T' -1
