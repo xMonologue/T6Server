@@ -24,7 +24,7 @@ readonly SCRIPT_PATH=$(readlink -f "${BASH_SOURCE[0]}")
 # Directory containing this script
 readonly SCRIPT_DIR=$(dirname "$SCRIPT_PATH")
 # Name of your server as it will appear in the server browser
-readonly SERVER_NAME="EFG 2.0 CLOSED ALPHA"
+readonly SERVER_NAME=""
 
 # Game path configuration
 # This is the path to your game files. Choose the appropriate path based on your game mode.
@@ -33,7 +33,7 @@ readonly SERVER_NAME="EFG 2.0 CLOSED ALPHA"
 readonly GAME_PATH="/opt/T6Server/Server/Zombie"
 
 # Your unique server key provided by Plutonium (https://platform.plutonium.pw/serverkeys)
-readonly SERVER_KEY="yo2wqWYdmN5BnpBBXq8c5KuF4ntEgcDP"
+readonly SERVER_KEY=""
 
 # Config file selection
 # This is the configuration file for your server. Choose based on your game mode.
