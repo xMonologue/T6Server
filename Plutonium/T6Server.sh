@@ -56,6 +56,7 @@ readonly INSTALL_DIR="/opt/T6Server/Plutonium"
 # Load a mod to your server (Make sure to setup a FastDL website so users can download the mod loaded into your server)
 # How to setup FastDL: https://plutonium.pw/docs/server/iw5/fastdl/
 # How to load mods into the server: https://plutonium.pw/docs/server/t4/loading-mods/ (Just use the T6 Folder, not the T4 folder since its WAW but the process is the same)
+# Made by @XMonologue (Not the whole script but the MOD section)
 MOD=""
 
 # Note: To switch to Zombie mode, make the following changes:
